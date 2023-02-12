@@ -1,0 +1,20 @@
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        def solve(self,i,arr,ss,ps):
+            if i==len(arr):
+                if ss not in ps:
+                    ps.append(ss)
+                else:
+                    return
+            else:
+                
+                ss.append(arr[i])
+                solve(self,i+1,arr,list(ss),ps)
+                ss.pop()
+                solve(self,i+1,arr,list(ss),ps)
+
+        ps=[]
+        ss=[]
+        nums.sort()
+        solve(self,0,nums,ss,ps)
+        return ps
